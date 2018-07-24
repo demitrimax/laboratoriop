@@ -17,12 +17,12 @@ class CreateMedicosMVZsTable extends Migration
             $table->increments('id');
             $table->string('nombre',200);
             $table->string('domicilio');
-            $table->string('ciudad',60);
-            $table->string('RFC',15);
-            $table->string('telefono1',15);
-            $table->string('telefono2',15);
-            $table->string('mr');
-            $table->date('vigencia');
+            $table->string('ciudad',60)->nullable();
+            $table->string('RFC',15)->nullable();
+            $table->string('telefono1',15)->nullable();
+            $table->string('telefono2',15)->nullable();
+            $table->string('mr')->nullable();
+            $table->date('vigencia')->nullable();
             $table->boolean('preferente');
             $table->softDeletes();
             $table->timestamps();

@@ -16,7 +16,7 @@ class CreateCatserviciosTable extends Migration
         Schema::create('catservicios', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('nomb_corto',20);
+            $table->string('nomb_corto',20)->nullable();
             $table->decimal('precio',8,2);
             $table->timestamps();
         });

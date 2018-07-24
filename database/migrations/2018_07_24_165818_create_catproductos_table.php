@@ -16,13 +16,13 @@ class CreateCatproductosTable extends Migration
         Schema::create('catproductos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('nomb_corto',20);
+            $table->string('nomb_corto',20)->nullable();
             $table->decimal('precio',8,2);
             $table->integer('stockMin');
-            $table->integer('stock');
-            $table->string('presentacion');
-            $table->string('linea');
-            $table->string('marca');
+            $table->integer('stock')->nullable();
+            $table->string('presentacion')->nullable();
+            $table->string('linea')->nullable();
+            $table->string('marca')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
