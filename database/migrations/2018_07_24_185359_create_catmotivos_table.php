@@ -15,7 +15,7 @@ class CreateCatmotivosTable extends Migration
     {
         Schema::create('catmotivos', function (Blueprint $table) {
             $table->increments('id');
-            $table->strings('motivo')->coment('Motivo de la prueba');
+            $table->string('motivo')->coment('Motivo de la prueba');
             $table->timestamps();
         });
     }
