@@ -19,6 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/ingreso', function() {
-	return view ('ingreso.index');
-});
+
+Route::get('/ingreso', 'ingresoController@index');
