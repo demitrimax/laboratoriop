@@ -18,7 +18,7 @@ class CreateClientesTable extends Migration
             $table->string('nombre');
             $table->string('RFC',15)->nullable();
             $table->string('domicilio')->nullable();
-            $table->string('ciudad',10)->nullable();
+            $table->string('ciudad',60)->nullable();
             $table->string('telefono1',15)->nullable();
             $table->string('telefono2',15)->nullable();
             $table->string('correo')->nullable();
