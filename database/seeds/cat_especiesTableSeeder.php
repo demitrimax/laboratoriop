@@ -20,7 +20,7 @@ class cat_especiesTableSeeder extends Seeder
               ['especie'=>'Porcino', 'Activo'=>1],
               ['especie'=>'Canino', 'Activo'=>1],
               ['especie'=>'Felino', 'Activo'=>1],
-            ]
+            ];
           cat_especies::insert($Especies);
     }
 

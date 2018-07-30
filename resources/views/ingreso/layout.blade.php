@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head >
   <meta charset="utf-8">
   <html lang="{{ app()->getLocale() }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'Laboratorios Platino') }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -80,7 +76,38 @@ desired effect
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="adminlte/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ Auth::user()->name  }}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
+                <p>
+                  {{ Auth::user()->name  }} - Web Developer
+                  <small>Rol {{ strtoupper(Auth::user()->rol)  }}</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                               {{ csrf_field() }}
+                           </form>
+                </div>
+              </li>
+            </ul>
+          </li>
 
 
           <!-- Control Sidebar Toggle Button -->
@@ -110,7 +137,7 @@ desired effect
       </div>
 
       <!-- search form (Optional) -->
-      <form action="#" method="get" class="sidebar-form">
+      <!-- <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -118,24 +145,25 @@ desired effect
               </button>
             </span>
         </div>
-      </form>
+      </form> -->
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
+        <li class="header">MENU PRINCIPAL</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li @yield('ingreso','')><a href="#"><i class="fa fa-link"></i> <span>Ingreso</span></a></li>
+        <li @yield('clientes','')><a href="#"><i class="fa fa-link"></i> <span>Clientes</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+          <a href="#"><i class="fa fa-link"></i> <span>Doctores MV's</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li class="active"><a href="#">Listado de Doctores</a></li>
+            <li><a href="#">Altas</a></li>
+            <li><a href="#">Modificaciones</a></li>
           </ul>
         </li>
       </ul>
@@ -150,7 +178,7 @@ desired effect
     <section class="content-header">
       <h1>
         @yield('titulo-pagina')
-        <small>Optional description</small>
+        <small>@yield('optinal-description','')</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -168,17 +196,20 @@ desired effect
 
     </section>
     <!-- /.content -->
+    <div style="position:relative;">
+      <img src="img/logo_platinos.png" border=0 name="lablogo" style="position:absolute; bottom:5px; right:5px;">
+    </div>
   </div>
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
+
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2018 <a href="#">ISA </a>Software</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -268,7 +299,7 @@ desired effect
 <script src="adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="adminlte/js/adminlte.min.js"></script>
-
+@yield('scripts')
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->

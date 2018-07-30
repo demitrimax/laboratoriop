@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/ingreso', 'ingresoController@index');
+
+Route::get('/ingreso/medicosMVZ/{id}', 'ingresoController@jsonmedicos');

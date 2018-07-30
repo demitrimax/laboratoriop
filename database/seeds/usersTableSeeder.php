@@ -25,8 +25,8 @@ class usersTableSeeder extends Seeder
             'email'=>'eliasrod@gmail.com',
             'password'=>bcrypt('elias'),
             'rol'=>'admin',
-          ],
-        ]
+          ]
+        ];
         User::insert($Usuarios);
     }
 }
